@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.OffsetDateTime;
+
 @Service
 public class TransferenciaService {
     @Autowired
@@ -18,5 +20,9 @@ public class TransferenciaService {
 
     public ResponseEntity<?> listar(){
         return new ResponseEntity<>(transferenciaRepository.findAll(),HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> filtrar(String nome){
+        return new ResponseEntity<>(transferenciaRepository.filtroPorNome(nome), HttpStatus.OK);
     }
 }

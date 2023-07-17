@@ -1,4 +1,4 @@
-package br.com.banco.controlador;
+package br.com.banco.controle;
 
 import br.com.banco.modelo.Conta;
 import br.com.banco.servico.ContaService;

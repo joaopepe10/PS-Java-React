@@ -18,7 +18,7 @@ public class Transferencia {
     private Long id;
 
     @Column(name = "data_transferencia", columnDefinition = "TIMESTAMP WITH TIME ZONE NOT NULL")
-    private OffsetDateTime dataTransferencia;
+    private OffsetDateTime data;
 
     @Column(columnDefinition = "NUMERIC (20,2) NOT NULL")
     private Double valor;
@@ -26,8 +26,8 @@ public class Transferencia {
     @Column(columnDefinition = "VARCHAR(15) NOT NULL")
     private String tipo;
 
-    @Column(columnDefinition = "VARCHAR (50)")
-    private String nomeOperadorTransacao;
+    @Column(columnDefinition = "VARCHAR (50)", name = "nome_operador_transacao")
+    private String nome;
 
 
     @ManyToOne
@@ -40,19 +40,19 @@ public class Transferencia {
     }
 
     public Transferencia(OffsetDateTime dataTransferencia, Double valor, String tipo, String nomeOperadorTransacao, Conta contaId) {
-        this.dataTransferencia = dataTransferencia;
+        this.data = dataTransferencia;
         this.valor = valor;
         this.tipo = tipo;
-        this.nomeOperadorTransacao = nomeOperadorTransacao;
+        this.nome = nomeOperadorTransacao;
         this.contaId = contaId;
     }
 
-    public Transferencia(Long id, OffsetDateTime dataTransferencia, Double valor, String tipo, String nomeOperadorTransacao, Conta contaId) {
+    public Transferencia(Long id, OffsetDateTime data, Double valor, String tipo, String nome, Conta contaId) {
         this.id = id;
-        this.dataTransferencia = dataTransferencia;
+        this.data = data;
         this.valor = valor;
         this.tipo = tipo;
-        this.nomeOperadorTransacao = nomeOperadorTransacao;
+        this.nome = nome;
         this.contaId = contaId;
     }
 }
