@@ -37,8 +37,8 @@ public class ContaService {
         return new ResponseEntity<>(contaRepository.intervalo(id, s, f), HttpStatus.OK);
     }
 
-    public ResponseEntity<?> listarPorNome(String nome) {
-        return new ResponseEntity<>(contaRepository.findByNome(nome), HttpStatus.OK);
+    public ResponseEntity<?> listarPorNomeAndId(Long id,String nome) {
+        return new ResponseEntity<>(contaRepository.findByIdAndNome(id, nome), HttpStatus.OK);
     }
 
     public ResponseEntity<?> listarPorPeriodo(LocalDate inicio, LocalDate fim){
@@ -49,5 +49,9 @@ public class ContaService {
         OffsetDateTime s = OffsetDateTime.parse(start);
         OffsetDateTime f = OffsetDateTime.parse(end);
         return new ResponseEntity<>(contaRepository.intervalo(s, f), HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> listarPorNome(String nome) {
+        return new ResponseEntity<>(contaRepository.findByNome(nome),HttpStatus.OK);
     }
 }
