@@ -18,6 +18,7 @@ public interface TransferenciaRepository extends JpaRepository<Transferencia, Lo
     List<Transferencia> findByNome(String nome);
 
     List<Transferencia> findByDataBetween(OffsetDateTime inicio, OffsetDateTime fim);
+    List<Transferencia> findByNomeAndDataBetween(String nome, OffsetDateTime inicio, OffsetDateTime fim);
 
 
 }

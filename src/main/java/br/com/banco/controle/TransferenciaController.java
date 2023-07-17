@@ -22,7 +22,7 @@ public class TransferenciaController {
         return transferenciaService.realizarOperacao(operacao);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/")
     public ResponseEntity<?> listar(){
         return transferenciaService.listar();
     }
@@ -38,6 +38,15 @@ public class TransferenciaController {
             @RequestParam("fim")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim
             ){
         return transferenciaService.filtroPorPeriodo(inicio, fim);
+    }
+
+    @GetMapping("/filtrar-all")
+    public ResponseEntity<?> filtrarPorNomePeriodo(
+            @RequestParam("nome")String nome,
+            @RequestParam("inicio")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate inicio,
+            @RequestParam("fim")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim
+    ){
+        return transferenciaService.filtroPorPeriodoNome(nome, inicio, fim);
     }
 
 }

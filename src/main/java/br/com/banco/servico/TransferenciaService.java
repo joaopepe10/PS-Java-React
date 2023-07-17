@@ -37,4 +37,14 @@ public class TransferenciaService {
         OffsetDateTime f = OffsetDateTime.parse(end);
         return new ResponseEntity<>(transferenciaRepository.findByDataBetween(s, f), HttpStatus.OK);
     }
+
+    public ResponseEntity<?> filtroPorPeriodoNome(String nome, LocalDate inicio, LocalDate fim){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+        String tmz = "T00:00:00+03";
+        String start = inicio.toString() + tmz;
+        String end = fim.toString() + tmz;
+        OffsetDateTime s = OffsetDateTime.parse(start);
+        OffsetDateTime f = OffsetDateTime.parse(end);
+        return new ResponseEntity<>(transferenciaRepository.findByNomeAndDataBetween(nome, s,f), HttpStatus.OK);
+    }
 }
