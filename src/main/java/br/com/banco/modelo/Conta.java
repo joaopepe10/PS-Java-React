@@ -21,6 +21,10 @@ public class Conta {
     @Column(name = "nome_responsavel", nullable = false)
     private String nomeResponsavel;
 
+    @OneToMany(mappedBy = "contaId")
+    @Column(nullable = false)
+    private List<Transferencia> transferencias;
+
 
 
     //CONSTRUTORES

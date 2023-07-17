@@ -15,10 +15,6 @@ public class ContaService {
     @Autowired
     private ContaRepository contaRepository;
 
-    public ResponseEntity<?> cadastrarConta(Conta c){
-        return new ResponseEntity<>(contaRepository.save(c), HttpStatus.CREATED);
-    }
-
     public ResponseEntity<?> listar(){
         return new ResponseEntity<>(contaRepository.findAll(), HttpStatus.OK);
     }

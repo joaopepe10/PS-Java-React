@@ -1,6 +1,5 @@
 package br.com.banco.servico;
 
-import br.com.banco.modelo.Transferencia;
 import br.com.banco.repositorio.TransferenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +15,6 @@ public class TransferenciaService {
     @Autowired
     private TransferenciaRepository transferenciaRepository;
 
-    public ResponseEntity<?> realizarOperacao(Transferencia t){
-        return new ResponseEntity<>(transferenciaRepository.save(t), HttpStatus.CREATED);
-    }
 
     public ResponseEntity<?> listar(){
         return new ResponseEntity<>(transferenciaRepository.findAll(),HttpStatus.OK);
@@ -26,6 +22,10 @@ public class TransferenciaService {
 
     public ResponseEntity<?> filtrarPorNome(String nome){
         return new ResponseEntity<>(transferenciaRepository.filtroPorNome(  nome), HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> filtrarPorId(Long id){
+        return new ResponseEntity<>(transferenciaRepository.findById(id), HttpStatus.OK);
     }
 
     public ResponseEntity<?> filtroPorPeriodo(LocalDate inicio, LocalDate fim){

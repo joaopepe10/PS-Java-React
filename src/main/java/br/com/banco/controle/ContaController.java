@@ -12,14 +12,9 @@ public class ContaController {
    @Autowired
     private ContaService contaService;
 
-   @GetMapping("/listar")
+   @GetMapping("/")
     public ResponseEntity<?> listar(){
        return contaService.listar();
-   }
-
-   @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrar(@RequestBody Conta conta){
-       return contaService.cadastrarConta(conta);
    }
 
 }

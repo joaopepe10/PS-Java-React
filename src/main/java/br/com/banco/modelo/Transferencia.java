@@ -1,5 +1,6 @@
 package br.com.banco.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +32,8 @@ public class Transferencia {
 
 
     @ManyToOne
-    @JoinColumn(name = "conta_id", columnDefinition = "INT NOT NULL", referencedColumnName = "id_conta")
+    @JoinColumn(name = "conta_id", columnDefinition = "INT NOT NULL")
+    @JsonIgnore
     private Conta contaId;
 
 
