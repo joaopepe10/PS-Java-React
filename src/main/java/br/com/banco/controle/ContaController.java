@@ -13,8 +13,15 @@ public class ContaController {
     private ContaService contaService;
 
    @GetMapping("/")
+   //LISTA TODAS AS CONTAS E SUAS RESPECTIVAS TRANSACOES
     public ResponseEntity<?> listar(){
        return contaService.listar();
+   }
+
+   @GetMapping("/id")
+   //METODO DE FILTRAR CONTA POR ID E MOSTRAR TRANSACOES
+    public ResponseEntity<?> listarPorId(@RequestParam("id")Long id){
+       return contaService.listarPorId(id);
    }
 
 }

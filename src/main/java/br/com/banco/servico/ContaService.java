@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContaService {
@@ -17,5 +18,9 @@ public class ContaService {
 
     public ResponseEntity<?> listar(){
         return new ResponseEntity<>(contaRepository.findAll(), HttpStatus.OK);
+    }
+
+    public ResponseEntity<?> listarPorId(Long id){
+        return new ResponseEntity<>(contaRepository.findById(id), HttpStatus.OK);
     }
 }
