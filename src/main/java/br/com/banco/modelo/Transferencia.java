@@ -34,27 +34,27 @@ public class Transferencia {
     @ManyToOne
     @JoinColumn(name = "conta_id", columnDefinition = "INT NOT NULL")
     @JsonIgnore
-    private Conta contaId;
+    private Conta conta;
 
 
     //CONTRUTORES
     public Transferencia() {
     }
 
-    public Transferencia(OffsetDateTime dataTransferencia, Double valor, String tipo, String nomeOperadorTransacao, Conta contaId) {
+    public Transferencia(OffsetDateTime dataTransferencia, Double valor, String tipo, String nomeOperadorTransacao, Conta conta) {
         this.data = dataTransferencia;
         this.valor = valor;
         this.tipo = tipo;
         this.nome = nomeOperadorTransacao;
-        this.contaId = contaId;
+        this.conta = conta;
     }
 
-    public Transferencia(Long id, OffsetDateTime data, Double valor, String tipo, String nome, Conta contaId) {
+    public Transferencia(Long id, OffsetDateTime data, Double valor, String tipo, String nome, Conta conta) {
         this.id = id;
         this.data = data;
         this.valor = valor;
         this.tipo = tipo;
         this.nome = nome;
-        this.contaId = contaId;
+        this.conta = conta;
     }
 }

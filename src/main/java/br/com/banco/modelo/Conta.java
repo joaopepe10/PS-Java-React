@@ -1,5 +1,6 @@
 package br.com.banco.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,12 +17,12 @@ public class Conta {
     //ATRIBUTOS
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_conta", nullable = false)
-    private Long idConta;
+    private Long id;
 
     @Column(name = "nome_responsavel", nullable = false)
-    private String nomeResponsavel;
+    private String nome;
 
-    @OneToMany(mappedBy = "contaId")
+    @OneToMany(mappedBy = "conta")
     @Column(nullable = false)
     private List<Transferencia> transferencias;
 
@@ -31,13 +32,13 @@ public class Conta {
     public Conta() {
     }
 
-    public Conta(String nomeResponsavel) {
-        this.nomeResponsavel = nomeResponsavel;
+    public Conta(String nome) {
+        this.nome = nome;
     }
 
-    public Conta(Long idConta, String nomeResponsavel) {
-        this.idConta = idConta;
-        this.nomeResponsavel = nomeResponsavel;
+    public Conta(Long idConta, String nome) {
+        this.id = idConta;
+        this.nome = nome;
     }
 
 }
