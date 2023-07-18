@@ -1,12 +1,12 @@
 package br.com.banco.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -36,25 +36,4 @@ public class Transferencia {
     @JsonIgnore
     private Conta conta;
 
-
-    //CONTRUTORES
-    public Transferencia() {
-    }
-
-    public Transferencia(OffsetDateTime dataTransferencia, Double valor, String tipo, String nomeOperadorTransacao, Conta conta) {
-        this.data = dataTransferencia;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.nome = nomeOperadorTransacao;
-        this.conta = conta;
-    }
-
-    public Transferencia(Long id, OffsetDateTime data, Double valor, String tipo, String nome, Conta conta) {
-        this.id = id;
-        this.data = data;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.nome = nome;
-        this.conta = conta;
-    }
 }

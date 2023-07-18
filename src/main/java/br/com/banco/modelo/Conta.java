@@ -1,13 +1,13 @@
 package br.com.banco.modelo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -26,19 +26,7 @@ public class Conta {
     @Column(nullable = false)
     private List<Transferencia> transferencias;
 
-
-
-    //CONSTRUTORES
-    public Conta() {
-    }
-
     public Conta(String nome) {
         this.nome = nome;
     }
-
-    public Conta(Long idConta, String nome) {
-        this.id = idConta;
-        this.nome = nome;
-    }
-
 }

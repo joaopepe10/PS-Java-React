@@ -35,12 +35,12 @@ public class TestConfig implements CommandLineRunner {
         OffsetDateTime o6 = OffsetDateTime.of(2021,4,1,12,12,0,4, ZoneOffset.ofHours(3));
 
 
-        Transferencia t1 = new Transferencia(o1, 30895.46, "DEPOSITO", null, c1);
-        Transferencia t2 = new Transferencia(o2, 12.24, "DEPOSITO", null, c2);
-        Transferencia t3 = new Transferencia(o3, -500.5, "SAQUE", null, c1);
-        Transferencia t4 = new Transferencia(o4, -530.5, "SAQUE", null, c2);
-        Transferencia t5 = new Transferencia(o5, 3241.23, "TRANSFERENCIA", "Beltrano", c1);
-        Transferencia t6 = new Transferencia(o6, 25173.09, "TRANSFERENCIA", "Ronnyscley", c2);
+        Transferencia t1 = new Transferencia(null, o1, 30895.46, "DEPOSITO", null, c1);
+        Transferencia t2 = new Transferencia(null,o2, 12.24, "DEPOSITO", null, c2);
+        Transferencia t3 = new Transferencia(null,o3, -500.5, "SAQUE", null, c1);
+        Transferencia t4 = new Transferencia(null,o4, -530.5, "SAQUE", null, c2);
+        Transferencia t5 = new Transferencia(null,o5, 3241.23, "TRANSFERENCIA", "Beltrano", c1);
+        Transferencia t6 = new Transferencia(null,o6, 25173.09, "TRANSFERENCIA", "Ronnyscley", c2);
         transferenciaRepository.saveAll(Arrays.asList(t1, t2, t3, t4, t5, t6));
     }
 }

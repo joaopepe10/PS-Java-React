@@ -18,11 +18,11 @@ public interface ContaRepository extends JpaRepository<Conta, Long> {
             value = "SELECT t FROM Conta c JOIN c.transferencias t WHERE t.data BETWEEN ?1 AND ?2"
     )
 
-    List<Transferencia> intervalo(OffsetDateTime inicio, OffsetDateTime fim);
+    List<Transferencia> findByBetween(OffsetDateTime inicio, OffsetDateTime fim);
 
     @Query(
             value = "SELECT t FROM Conta c JOIN c.transferencias t WHERE c.id = ?1 AND t.data BETWEEN ?2 AND ?3"
     )
 
-    List<Transferencia> intervalo(Long id, OffsetDateTime inicio, OffsetDateTime fim);
+    List<Transferencia> findByBetween(Long id, OffsetDateTime inicio, OffsetDateTime fim);
 }
