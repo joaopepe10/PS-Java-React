@@ -28,7 +28,7 @@ public class TransferenciaController {
     }
 
     //FILTRA POR ID DA CONTA
-    @GetMapping
+    @GetMapping("/transferencia")
     public ResponseEntity<?> filtrarPorId(@RequestParam("id")Long id){
         return transferenciaService.filtrarPorId(id);
     }
