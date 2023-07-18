@@ -42,7 +42,7 @@ public class TransferenciaController {
         return transferenciaService.filtroPorPeriodo(inicio, fim);
     }
 
-    @GetMapping("/filtrar-all")
+    @GetMapping("/filtrar-nome-intervalo")
     public ResponseEntity<?> filtrarPorNomePeriodo(
             //URL DEVE SER TRATADA DA SEGUINTE FORMA localhost:8080/operacao/filtrar-all?nome=nome&inicio=inicio&fim=fim
             @RequestParam("nome")String nome,
