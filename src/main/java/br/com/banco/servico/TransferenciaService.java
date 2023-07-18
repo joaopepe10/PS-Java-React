@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
+
 
 @Service
 public class TransferenciaService {
@@ -21,7 +21,7 @@ public class TransferenciaService {
     }
 
     public ResponseEntity<?> filtrarPorNome(String nome){
-        return new ResponseEntity<>(transferenciaRepository.filtroPorNome(  nome), HttpStatus.OK);
+        return new ResponseEntity<>(transferenciaRepository.findByNome(  nome), HttpStatus.OK);
     }
 
     public ResponseEntity<?> filtrarPorId(Long id){
@@ -29,7 +29,6 @@ public class TransferenciaService {
     }
 
     public ResponseEntity<?> filtroPorPeriodo(LocalDate inicio, LocalDate fim){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
         String tmz = "T00:00:00+03";
         String start = inicio.toString() + tmz;
         String end = fim.toString() + tmz;
@@ -39,7 +38,6 @@ public class TransferenciaService {
     }
 
     public ResponseEntity<?> filtroPorPeriodoNome(String nome, LocalDate inicio, LocalDate fim){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
         String tmz = "T00:00:00+03";
         String start = inicio.toString() + tmz;
         String end = fim.toString() + tmz;
